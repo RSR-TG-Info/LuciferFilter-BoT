@@ -1,17 +1,17 @@
 import os, aiohttp, re, asyncio
 from asyncio import sleep
 from pyrogram import filters, enums
-from Midukki.midukki import Midukki_RoboT
+from LuciferFilter.luciferfilter import LuciferFilter-BoT
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from pyrogram.errors import UserIsBlocked, MessageNotModified, PeerIdInvalid, FloodWait
-from Midukki.database import db, Media, save_file, get_file_details, get_search_results
-from Midukki.functions.commands import button, markup, message
-from Midukki.functions.handlers import AutoFilter, Admins
-from Midukki.functions.settings import get_settings, save_group_settings
-from Midukki.functions.unpack_file_id import unpack_new_file_id
-from Midukki.functions.user_details import user_mention
-from Midukki.functions.media_details import get_size
-from Midukki import Configs, Index, Bots, Customize
+from LuciferFilter.database import db, Media, save_file, get_file_details, get_search_results
+from LuciferFilter.functions.commands import button, markup, message
+from LuciferFilter.functions.handlers import AutoFilter, Admins
+from LuciferFilter.functions.settings import get_settings, save_group_settings
+from LuciferFilter.functions.unpack_file_id import unpack_new_file_id
+from LuciferFilter.functions.user_details import user_mention
+from LuciferFilter.functions.media_details import get_size
+from LuciferFilter import Configs, Index, Bots, Customize
 from logging import getLogger, ERROR
 
 logger = getLogger(__name__)
@@ -21,7 +21,7 @@ lock = asyncio.Lock()
 
 media_filter = filters.document | filters.video | filters.audio
 
-@Midukki_RoboT.on_message(filters.chat(Configs.CHANNELS) & media_filter)
+@LuciferFilter-BoT.on_message(filters.chat(Configs.CHANNELS) & media_filter)
 async def media(client, message):
     """Media Handler"""
     for file_type in ("document", "video", "audio"):
@@ -169,8 +169,8 @@ async def index_files(client, query):
     await index_files_to_db(int(lst_msg_id), chat, msg, client)
 
 
-@Midukki_RoboT.on_message(AutoFilter.b)
-async def save_template(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(AutoFilter.b)
+async def save_template(client: LuciferFilter-BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -211,8 +211,8 @@ async def save_template(client: Midukki_RoboT, message: message()):
     await sts.edit(f"""Successfully Changed Temp (Autofilter) for {title} to \n\n{pr0fess0r_99}""")
 
 
-@Midukki_RoboT.on_message(AutoFilter.c)
-async def reset_template(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(AutoFilter.c)
+async def reset_template(client: LuciferFilter-BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -249,8 +249,8 @@ async def reset_template(client: Midukki_RoboT, message: message()):
     await sts.edit(f"""Successfully Restarted Autofilter""")
 
 
-@Midukki_RoboT.on_message(AutoFilter.d)
-async def set_filecaption(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(AutoFilter.d)
+async def set_filecaption(client: LuciferFilter-BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -291,8 +291,8 @@ async def set_filecaption(client: Midukki_RoboT, message: message()):
     await sts.edit(f"""Successfully Changed FileCaption (Autofilter) for {title} to \n\n{pr0fess0r_99}""")
 
 
-@Midukki_RoboT.on_message(AutoFilter.e)
-async def reset_caption(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(AutoFilter.e)
+async def reset_caption(client: LuciferFilter-BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -329,8 +329,8 @@ async def reset_caption(client: Midukki_RoboT, message: message()):
     await sts.edit("Successfully Restarted FileCaption")
 
 
-@Midukki_RoboT.on_message(AutoFilter.f)
-async def set_spellmode(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(AutoFilter.f)
+async def set_spellmode(client: LuciferFilter-BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -371,8 +371,8 @@ async def set_spellmode(client: Midukki_RoboT, message: message()):
     await sts.edit(f"""Successfully Changed SpellCheck Message (Autofilter) for {title} to \n\n{pr0fess0r_99}""")
 
 
-@Midukki_RoboT.on_message(AutoFilter.g)
-async def reset_spellmode(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(AutoFilter.g)
+async def reset_spellmode(client: LuciferFilter-BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -408,8 +408,8 @@ async def reset_spellmode(client: Midukki_RoboT, message: message()):
     await save_group_settings(grp_id, 'spell_caption', Customize.SPELLCHECK_CAPTION)
     await sts.edit("Successfully Restarted SpellCheck Message")
 
-@Midukki_RoboT.on_message(AutoFilter.h)
-async def set_autodel(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(AutoFilter.h)
+async def set_autodel(client: LuciferFilter-BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -454,7 +454,7 @@ async def set_autodel(client: Midukki_RoboT, message: message()):
     await sts.edit(f"""Successfully Changed Auto Delete Time (Autofilter) for {title}""")
 
 
-@Midukki_RoboT.on_message(Admins.a)
+@LuciferFilter-BoT.on_message(Admins.a)
 async def channel_info(client, message):
            
     """Send basic information of channel"""
@@ -484,7 +484,7 @@ async def channel_info(client, message):
         await message.reply_document(file)
         os.remove(file)
 
-@Midukki_RoboT.on_message(Admins.b)
+@LuciferFilter-BoT.on_message(Admins.b)
 async def total(client, message):
     msg = await message.reply_text("Processing...⏳", quote=True)
     try:
@@ -494,7 +494,7 @@ async def total(client, message):
         logger.exception('Failed To Check Total Files')
         await msg.edit(f'Error: {e}')
 
-@Midukki_RoboT.on_message(Admins.c)
+@LuciferFilter-BoT.on_message(Admins.c)
 async def delete(client, message):
     """Delete file from database"""
     reply = message.reply_to_message
@@ -541,7 +541,7 @@ async def delete(client, message):
             else:
                 await msg.edit('File not found in database')
 
-@Midukki_RoboT.on_message(Admins.d)
+@LuciferFilter-BoT.on_message(Admins.d)
 async def delete_all_index(client, message):
     await message.reply_text(
         'This will delete all indexed files.\nDo you want to continue??',
@@ -562,7 +562,7 @@ async def delete_all_index(client, message):
         quote=True,
     )
 
-@Midukki_RoboT.on_message(Admins.e)
+@LuciferFilter-BoT.on_message(Admins.e)
 async def set_skip_number(client, message):
     if ' ' in message.text:
         _, skip = message.text.split(" ")
@@ -575,7 +575,7 @@ async def set_skip_number(client, message):
     else:
         await message.reply("Give me a skip number")
 
-@Midukki_RoboT.on_message(Admins.f)
+@LuciferFilter-BoT.on_message(Admins.f)
 async def log_file(bot, message):
     """Send log file"""
     try:
@@ -583,7 +583,7 @@ async def log_file(bot, message):
     except Exception as e:
         await message.reply(str(e))
 
-@Midukki_RoboT.on_callback_query(filters.regex(r'^autofilter_delete'))
+@LuciferFilter-BoT.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(client, message):
     await Media.collection.drop()
     await message.answer('Piracy Is Crime')
@@ -804,7 +804,7 @@ async def auto_filters(client: Midukki_RoboT, message: message()):
                     [
                         button()
                             (
-                                "🤖 Check My Pm 🤖",
+                                "🤖 Check My PM 🤖",
                                     url=f"https://telegram.dog/{Bots.BOT_USERNAME}"
                             )
                     ]
@@ -849,7 +849,7 @@ async def auto_filters(client: Midukki_RoboT, message: message()):
                     [
                         button()
                             (
-                                "🤖 Check My Pm 🤖",
+                                "🤖 Check My PM 🤖",
                                     url=f"https://telegram.dog/{Bots.BOT_USERNAME}"
                             )
                     ]
