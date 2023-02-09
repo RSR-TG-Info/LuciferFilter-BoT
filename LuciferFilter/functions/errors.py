@@ -2,7 +2,7 @@ import sys
 import traceback
 from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
-from Midukki import Configs
+from LuciferFilter import Configs
 
 def split_limits(text):
     if len(text) < 2048:
