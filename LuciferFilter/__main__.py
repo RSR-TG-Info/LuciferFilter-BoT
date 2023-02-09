@@ -2,7 +2,7 @@ from os import environ
 from random import choice 
 from pyrogram import filters, enums
 from pyrogram.errors import UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from .import Bots, Configs
+from . import Bots, Configs
 from .luciferfilter import LuciferFilter-BoT
 from .scripts import START_TXT, HELP_TXT, ABOUT_TXT, STATUS_TXT, DONATE_TXT
 from LuciferFilter.modules import vars
