@@ -1,16 +1,16 @@
 from logging import getLogger, ERROR
 from pyrogram import enums
-from Midukki.midukki import Midukki_RoboT
-from Midukki.functions.handlers import Connection
-from Midukki.functions.commands import button, markup, message
-from Midukki.database import db
-from Midukki import Configs
+from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.functions.handlers import Connection
+from LuciferFilter.functions.commands import button, markup, message
+from LuciferFilter.database import db
+from LuciferFilter import Configs
 
 logger = getLogger(__name__)
 logger.setLevel(ERROR)
 
-@Midukki_RoboT.on_message(Connection.a)
-async def add_new_connection(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Connection.a)
+async def add_new_connection(client: LuciferFilter-BoT, message: message()):
 
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -80,8 +80,8 @@ async def add_new_connection(client: Midukki_RoboT, message: message()):
         await message.reply_text('Some error occurred! Try again later.', quote=True)
         return
 
-@Midukki_RoboT.on_message(Connection.b)
-async def delete_old_connection(client, Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Connection.b)
+async def delete_old_connection(client, LuciferFilter-BoT, message: message()):
 
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -108,8 +108,8 @@ async def delete_old_connection(client, Midukki_RoboT, message: message()):
         else:
             await message.reply_text("This chat isn't connected to me!\nDo /connect to connect.", quote=True)
 
-@Midukki_RoboT.on_message(Connection.c)
-async def all_connections_command(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Connection.c)
+async def all_connections_command(client: LuciferFilter-BoT, message: message()):
     userid = message.from_user.id
 
     groupids = await db.all_connections(str(userid))
