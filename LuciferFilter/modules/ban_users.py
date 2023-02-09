@@ -1,10 +1,10 @@
 from pyrogram import Client, filters
-from LuciferFilter.luciferfilter import LuciferFilter-BoT 
+from LuciferFilter.luciferfilter import LuciferFilter_BoT 
 from LuciferFilter.functions.extract_user import extract_user
 from LuciferFilter.functions.extract_time import extract_time
 from LuciferFilter.functions.handlers import Ban
 
-@LuciferFilter-BoT.on_message(Ban.a)
+@LuciferFilter_BoT.on_message(Ban.a)
 async def ban_user(_, message):
     user_id, user_first_name, _ = extract_user(message)
 
@@ -52,7 +52,7 @@ async def un_ban_user(_, message):
                 " ഗ്രൂപ്പിൽ ചേരാൻ കഴിയും!"
             )
 
-@LuciferFilter-BoT.on_message(Ban.c)
+@LuciferFilter_BoT.on_message(Ban.c)
 async def temp_ban_user(_, message):
     if not len(message.command) > 1:
         return
