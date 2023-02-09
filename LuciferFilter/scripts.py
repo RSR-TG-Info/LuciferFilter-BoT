@@ -1,15 +1,15 @@
 START_TXT = """
-Hello 👋 {mention} 
+Hello 👋 {mention}, 
 
-I'm <b>{bot}</b> ✨ an advanced telegram Group management
+I'm <b>{bot}</b> An Advanced Telegram Group Management 
 
-I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential..!
+I'm Here To Help You Manage Your Groups! Hit /help To Find Out More About How To Use Me To My Full Potential...!!
 
-Join <b><a href=http://t.me/Mo_Tech_YT>my news channel</a></b> to get information on all the latest updates
+Join <b><a href=http://t.me/TechProjectsUpdates>My Updates Channel</a></b> To Get Information On All The Latest Updates
 """
 
 HELP_TXT = """
-👋 <b>Hello {mention}!</b>
+<b>Hello 👋 {mention},</b>
 
 I Can Guide You Through All Of <b>{bot}</b>'s Cool Features And How To Properly Use Them. Use The Buttons Below To Navigate Through All Of The Modules          
 
@@ -24,21 +24,22 @@ I Can Guide You Through All Of <b>{bot}</b>'s Cool Features And How To Properly 
 """
 
 ABOUT_TXT = """
-[{name}](t.me/{username}) Was created on September 4, 2022
-We are currently developing this bot, using only the Pyrogram library.
+[{name}](t.me/{username}) Was Created On February 10, 2023
+We Are Currently Developing This Bot, Using Only The Pyrogram Library.
 
-➾ Developers : Muhammed
+➾ Developer : Bikash
 ➾ Language : Python3
 ➾ Framework : Pyrogram
-➾ Database : Mongo db
+➾ DataBase : MongoDB 
 """
 
 DONATE_TXT = """
-If you like this project of mine, you can donate by clicking on the given link
+If You Like This Project Of Mine, You Can Donate by Using UPI Id
 
-Dev : [Muhammed](t.me/Pr0fess0r_99)
-Paytm : [Click Here](https://p.paytm.me/xCTH/7yzmtgie)
-  or UPI `motech8129@okaxis`
+UPI 🆔 Details
+
+Google pay 📲 `joynathnet4@oksbi`
+Phonepe 📲 `bijoy.nath@ybl`
 """
 
 STATUS_TXT = """
@@ -219,17 +220,17 @@ Check Your Spelling
 """
 
 IMDB_TEMPLATE_TXT = """
-🙋‍♂️ Hey {mention} Your Requested {query} is ready 👍
+🙋‍♂️ Hey {mention} Your Requested {query} Is Ready 
 """
 
 WELCOME_TXT = """
 Hai {mention}
 
-Welcome To {chat} ❣️
+Welcome To {chat} 💐
 """
 
 SEND_LOGS_A = """
-#BOT_STARTED"""
+BoT Successfully Started ☑️"""
 
 class Txt(object):
     START_TXT = START_TXT
