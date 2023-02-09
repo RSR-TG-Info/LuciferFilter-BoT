@@ -7,14 +7,14 @@ from LuciferFilter.functions.settings import get_settings
 from LuciferFilter.functions.loadings import loading
 from LuciferFilter.database import db, Media
 from LuciferFilter import Configs, Index, Bots
-from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.luciferfilter import LuciferFilter_BoT
 from LuciferFilter.scripts import Txt
 from .auto_filters import index_files, get_result_file, next_page_, back_page_
 from .connections import connections_callback_1, connections_callback_2, connections_callback_3, connections_callback_4, connections_callback_5
 from .manual_filters import alert_cb, del_all_cancel, del_all_confirm
 from .settings_configs import setting_cb
 
-@LuciferFilter-BoT.on_callback_query(filters.regex("(close_data|groupcb|connectcb|disconnect|deletecb|backcb|index|get_file|nextgroup|backgroup|delallcancel|delallconfirm|alertmessage|settings)"))
+@LuciferFilter_BoT.on_callback_query(filters.regex("(close_data|groupcb|connectcb|disconnect|deletecb|backcb|index|get_file|nextgroup|backgroup|delallcancel|delallconfirm|alertmessage|settings)"))
 async def cb_handler(client, query):
 
     try: user_id = query.reply_to_message.from_user.id
@@ -66,7 +66,7 @@ async def cb_handler(client, query):
     else:
         await query.answer("This Is not for you", show_alert=True)
 
-@LuciferFilter-BoT.on_callback_query(filters.create(lambda _, __, query: query.data.startswith("maincb")))
+@LuciferFilter_BoT.on_callback_query(filters.create(lambda _, __, query: query.data.startswith("maincb")))
 async def callback_ui(client, query):
     cb = query.data.split("+", 1)[1]
 
