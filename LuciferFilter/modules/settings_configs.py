@@ -1,12 +1,12 @@
 from pyrogram import enums 
-from Midukki.midukki import Midukki_RoboT
-from Midukki.functions.commands import button, markup, message
-from Midukki.functions.settings import get_settings, save_group_settings, setting_command, reload_command          
-from Midukki.database import db
-from Midukki import Configs
+from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.functions.commands import button, markup, message
+from LuciferFilter.functions.settings import get_settings, save_group_settings, setting_command, reload_command          
+from LuciferFilter.database import db
+from LuciferFilter import Configs
 
-@Midukki_RoboT.on_message(reload_command)
-async def reloaddbchat(client: Midukki_RoboT, message):
+@LuciferFilter-BoT.on_message(reload_command)
+async def reloaddbchat(client: LuciferFilter-BoT, message):
     userid = message.from_user.id if message.from_user else None
 
     if not userid:
@@ -40,8 +40,8 @@ async def reloaddbchat(client: Midukki_RoboT, message):
     await db.delete_chat(grp_id)
     await message.reply(f"Successfully reloaded Database")
 
-@Midukki_RoboT.on_message(setting_command)
-async def settings(client: Midukki_RoboT, message):
+@LuciferFilter-BoT.on_message(setting_command)
+async def settings(client: LuciferFilter-BoT, message):
     userid = message.from_user.id if message.from_user else None
 
     if not userid:
@@ -77,7 +77,7 @@ async def settings(client: Midukki_RoboT, message):
         keyboard = await settings_keyboard(settings, grp_id)
         await message.reply_text(text=f"<b>Change Your Settings for {title}</b>", reply_markup=markup()(keyboard), disable_web_page_preview=True, parse_mode=enums.ParseMode.HTML, reply_to_message_id=message.id)                     
         
-async def setting_cb(client: Midukki_RoboT, query):
+async def setting_cb(client: LuciferFilter-BoT, query):
     ident, set_type, status, grp_id = query.data.split("#")
     grpid = await db.active_connection(str(query.from_user.id))
 
