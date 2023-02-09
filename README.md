@@ -114,7 +114,7 @@ Read this before you start messing up with your edits
 
 ### Deployment Support Sites 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/pr0fess0r99/RENAME-BOT-V3)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pr0fess0r99/LuciferFilter-BoT)
 
 <details><summary>Deploy To Railway</summary>
 <p>
