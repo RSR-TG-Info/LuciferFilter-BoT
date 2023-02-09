@@ -54,7 +54,7 @@
             "required": false
         },
         "GITHUB_USERNAME": {
-            "description": "Enter Your Github Username Pr0fess0r-99",
+            "description": "Enter Your Github Username Pr0fess0r99",
             "value": "Pr0fess0r99",
             "required": true
         },
@@ -64,7 +64,7 @@
             "required": true
         },
         "REPO_USERNAME": {
-            "description": "Enter Repository name Midukki-RoBoT",
+            "description": "Enter Repository name Luciferfilter_BoT",
             "value": "LuciferFilter-BoT",
             "required": false
         },
@@ -79,7 +79,7 @@
             "required": false
         },
         "DONATION_LINK": {
-            "description": "enter your gpay, pypal etc.. link",
+            "description": "enter your gpay, ppay, pypal etc.. link",
             "value": "",
             "required": false
         },
@@ -119,12 +119,12 @@
             "required": false
         },
         "LOADING_A": {
-            "description": "Loading First Symbol ⚪️.",
+            "description": "Loading First Symbol.",
             "value": "▢",
             "required": false
         },
         "LOADING_B": {
-            "description": "Loading Second Symbol ⚫️.",
+            "description": "Loading Second Symbol.",
             "value": "▣",
             "required": false
         },
