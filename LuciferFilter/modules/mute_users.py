@@ -1,9 +1,9 @@
-from Midukki.midukki import Midukki_RoboT
-from Midukki.functions.extract_user import extract_user
-from Midukki.functions.extract_time import extract_time
-from Midukki.functions.handlers import Mute
+from LuciferFilter.luciferfilter import LuciferFilter_BoT
+from LuciferFilter.functions.extract_user import extract_user
+from LuciferFilter.functions.extract_time import extract_time
+from LuciferFilter.functions.handlers import Mute
 
-@Midukki_RoboT.on_message(Mute.a)
+@LuciferFilter_BoT.on_message(Mute.a)
 async def mute_user(_, message):
     user_id, user_first_name, _ = extract_user(message)
 
@@ -27,7 +27,7 @@ async def mute_user(_, message):
                 "I banned him! 🤐"
             )
 
-@Midukki_RoboT.on_message(Mute.b)
+@LuciferFilter_BoT.on_message(Mute.b)
 async def un_ban_user(_, message):
     user_id, user_first_name, _ = extract_user(message)
 
@@ -49,7 +49,7 @@ async def un_ban_user(_, message):
                 "</a>!"
             )
 
-@Midukki_RoboT.on_message(Mute.c)
+@LuciferFilter_BoT.on_message(Mute.c)
 async def temp_mute_user(_, message):
     if not len(message.command) > 1:
         return
