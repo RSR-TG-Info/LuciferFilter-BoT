@@ -1,1 +1,1 @@
-web: python3 -m LuciferFilter 
+worker: python3 -m LuciferFilter 
