@@ -5,12 +5,12 @@ from logging import ERROR, getLogger
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pyrogram.errors import MediaEmpty, MessageEmpty
-from Midukki.midukki import Midukki_RoboT
-from Midukki.functions.handlers import Manual
-from Midukki.functions.keyboards import parser, split_quotes
-from Midukki.functions.media_details import get_file_id
-from Midukki.database import db
-from Midukki import Configs
+from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.functions.handlers import Manual
+from LuciferFilter.functions.keyboards import parser, split_quotes
+from LuciferFilter.functions.media_details import get_file_id
+from LuciferFilter.database import db
+from LuciferFilter import Configs
 
 logger = getLogger(__name__)
 logger.setLevel(ERROR)
@@ -86,8 +86,8 @@ async def manual_filters(client, message, text=False):
     else:
         return False
 
-@Midukki_RoboT.on_message(Manual.a)
-async def addfilter(client: Midukki_RoboT, message: Message):
+@LuciferFilter_BoT.on_message(Manual.a)
+async def addfilter(client: LuciferFilter_BoT, message: Message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
         return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
@@ -189,8 +189,8 @@ async def addfilter(client: Midukki_RoboT, message: Message):
         parse_mode=enums.ParseMode.MARKDOWN
     )
 
-@Midukki_RoboT.on_message(Manual.b)
-async def get_all(client: Midukki_RoboT, message: Message):
+@LuciferFilter_BoT.on_message(Manual.b)
+async def get_all(client: LuciferFilter_BoT, message: Message):
     
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -253,8 +253,8 @@ async def get_all(client: Midukki_RoboT, message: Message):
         parse_mode=enums.ParseMode.MARKDOWN
     )
 
-@Midukki_RoboT.on_message(Manual.c)
-async def deletefilter(client: Midukki_RoboT, message: Message):
+@LuciferFilter_BoT.on_message(Manual.c)
+async def deletefilter(client: LuciferFilter_BoT, message: Message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
         return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
@@ -304,8 +304,8 @@ async def deletefilter(client: Midukki_RoboT, message: Message):
 
     await db.delete_filter(message, query, grp_id)
        
-@Midukki_RoboT.on_message(Manual.d)
-async def delallconfirm(client: Midukki_RoboT, message: Message):
+@LuciferFilter_BoT.on_message(Manual.d)
+async def delallconfirm(client: LuciferFilter_BoT, message: Message):
 
     userid = message.from_user.id if message.from_user else None
     if not userid:
