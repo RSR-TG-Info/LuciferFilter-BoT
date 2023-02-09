@@ -1,6 +1,6 @@
 from pyrogram import filters
 from .commands import command
-from Midukki.database import db
+from LuciferFilter.database import db
 
 SETTINGS = {}
 
