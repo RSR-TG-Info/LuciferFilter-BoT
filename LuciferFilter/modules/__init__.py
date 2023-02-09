@@ -1,20 +1,20 @@
 import asyncio, time, shutil, psutil, os
 from pyrogram import filters, enums
 from pyrogram.errors import MessageNotModified
-from Midukki.functions.media_details import humanbytes, get_size
-from Midukki.functions.commands import button, markup, message               
-from Midukki.functions.settings import get_settings 
-from Midukki.functions.loadings import loading
-from Midukki.database import db, Media
-from Midukki import Configs, Index, Bots
-from Midukki.midukki import Midukki_RoboT
-from Midukki.scripts import Txt
+from LuciferFilter.functions.media_details import humanbytes, get_size
+from LuciferFilter.functions.commands import button, markup, message               
+from LuciferFilter.functions.settings import get_settings 
+from LuciferFilter.functions.loadings import loading
+from LuciferFilter.database import db, Media
+from LuciferFilter import Configs, Index, Bots
+from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.scripts import Txt
 from .auto_filters import index_files, get_result_file, next_page_, back_page_
 from .connections import connections_callback_1, connections_callback_2, connections_callback_3, connections_callback_4, connections_callback_5
 from .manual_filters import alert_cb, del_all_cancel, del_all_confirm
 from .settings_configs import setting_cb
 
-@Midukki_RoboT.on_callback_query(filters.regex("(close_data|groupcb|connectcb|disconnect|deletecb|backcb|index|get_file|nextgroup|backgroup|delallcancel|delallconfirm|alertmessage|settings)"))
+@LuciferFilter-BoT.on_callback_query(filters.regex("(close_data|groupcb|connectcb|disconnect|deletecb|backcb|index|get_file|nextgroup|backgroup|delallcancel|delallconfirm|alertmessage|settings)"))
 async def cb_handler(client, query):
 
     try: user_id = query.reply_to_message.from_user.id
@@ -66,7 +66,7 @@ async def cb_handler(client, query):
     else:
         await query.answer("This Is not for you", show_alert=True)
 
-@Midukki_RoboT.on_callback_query(filters.create(lambda _, __, query: query.data.startswith("maincb")))
+@LuciferFilter-BoT.on_callback_query(filters.create(lambda _, __, query: query.data.startswith("maincb")))
 async def callback_ui(client, query):
     cb = query.data.split("+", 1)[1]
 
@@ -253,7 +253,7 @@ async def callback_ui(client, query):
                 reply_markup=btn
             )
         else:
-            await query.answer("Hey Bro or Sis 🙏 Your Not A Authorized User", show_alert=True)
+            await query.answer("Hey Bro or Sis You Are Not A Authorized User", show_alert=True)
 
 class vars(object):
     start_buttons = [
@@ -267,24 +267,24 @@ class vars(object):
         [
             button()
                 (
-                    "Support",
-                        url="https://t.me/+sv5flNs7yew1OTk1"
+                    "🔗 Support",
+                        url="https://t.me/TechProjectsChats"
                 ),
             button()
                 (
-                    "Updates",
-                        url="https://t.me/Mo_Tech_YT"
+                    "📢 Updates",
+                        url="https://t.me/TechProjectsUpdates"
                 )
         ],
         [
             button()
                 (
-                    "Help",
+                    "ℹ️ Help",
                         callback_data="maincb+help_cb"
                 ),
             button()
                 (
-                    "About",
+                    "😎 About",
                        callback_data="maincb+about_cb"
                 )
         ]
@@ -292,50 +292,50 @@ class vars(object):
     help_buttons = [
         [
             button()(
-                "📤AutoFilter", callback_data="maincb+auto_cb"
+                "📤 AutoFilter", callback_data="maincb+auto_cb"
             ),
             button()(
-                "🎛️ManualFilter", callback_data="maincb+manual_cb"
+                "📤 ManualFilter", callback_data="maincb+manual_cb"
             )
         ],
         [
             button()(
-                "🤬Ban", callback_data="maincb+ban_cb"
+                "🚫 Ban", callback_data="maincb+ban_cb"
             ),
             button()(
-                "🤐Mute", callback_data="maincb+mute_cb"
+                "🤐 Mute", callback_data="maincb+mute_cb"
             ),
             button()(
-                "ℹ️IDs", callback_data="maincb+info_cb"
+                "🆔 IDs", callback_data="maincb+info_cb"
             )
         ],
         [     
             button()(
-                "📌Pin", callback_data="maincb+pin_cb"
+                "📌 Pin", callback_data="maincb+pin_cb"
             ),
             button()(
-                "🗣️Spell", callback_data="maincb+spell_cb"
+                "🗣️ Spell", callback_data="maincb+spell_cb"
             ),
             button()(
-                "📝Caption", callback_data="maincb+caption_cb"
+                "📝 Caption", callback_data="maincb+caption_cb"
             )
         ],
         [
             button()(
-                "🔗Connection", callback_data="maincb+connection_cb"
+                "🛠️ Connection", callback_data="maincb+connection_cb"
             ),
             button()(
-                "📡Status", callback_data="maincb+stats_cb"
+                "📡 Status", callback_data="maincb+stats_cb"
             )
         ],
         [
             button()(
-               "🔐Admin Panel🔐", callback_data="maincb+admin_panel_cb"
+               "👮 Admin Panel 👮", callback_data="maincb+admin_panel_cb"
             )
         ],
         [
             button()(
-                "🚫 Close", callback_data="close_data"
+                "🔐 Close", callback_data="close_data"
             ),
             button()(
                 "<= Back", callback_data="maincb+start_cb"
@@ -346,31 +346,19 @@ class vars(object):
         [
             button()
                 (
-                    "Support",
-                        url="https://t.me/Mo_Tech_YT"
+                    "🔗 Support",
+                        url="https://t.me/TechProjectsChats"
                 ),
             button()
                 (
-                    "Source",
-                        url="https://t.me/+sv5flNs7yew1OTk1"
+                    "📦 Source",
+                        url="https://t.me/TechProjectsUpdates"
                 )
         ],
         [
             button()
                 (
-                    "Tutorial",
-                        url="https://youtu.be/63K9xkKMBoo"
-                ),
-            button()
-                (
-                    "Insta",
-                        url="https://www.instagram.com/mrk_yt_"
-                )
-        ],
-        [
-            button()
-                (
-                    "⬅️ Back To Home ➡️",
+                    "<= Back To Home 🏠",
                         callback_data="maincb+start_cb"
                 )
         ]
@@ -380,12 +368,12 @@ class vars(object):
         [
             button()
                 (
-                    "close 🗑️",
+                    "Close 🔐",
                         callback_data="close_data"
                 ),
             button()
                 (
-                    "back <=",
+                    "<= Back",
                         callback_data="maincb+help_cb"
                 )
         ]
@@ -395,12 +383,12 @@ class vars(object):
         [
             button()
                 (
-                    "close 🗑️",
+                    "Close 🔐",
                         callback_data="close_data"
                 ),
             button()
                 (
-                    "back <=",
+                    "<= Back",
                         callback_data="maincb+start_cb"
                 )
         ]
@@ -410,12 +398,12 @@ class vars(object):
         [
             button()
                 (
-                    "close 🗑️",
+                    "Close 🔐",
                         callback_data="close_data"
                 ),
             button()
                 (
-                    "back <=",
+                    "<= Back",
                         callback_data="maincb+about_cb"
                 )
         ]
