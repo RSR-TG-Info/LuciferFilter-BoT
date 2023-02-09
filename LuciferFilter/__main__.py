@@ -3,7 +3,7 @@ from random import choice
 from pyrogram import filters, enums
 from pyrogram.errors import UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from . import Bots, Configs
-from .luciferfilter import LuciferFilter-BoT
+from .luciferfilter import LuciferFilter_BoT
 from .scripts import START_TXT, HELP_TXT, ABOUT_TXT, STATUS_TXT, DONATE_TXT
 from LuciferFilter.modules import vars
 from LuciferFilter.functions.user_details import user_mention
@@ -17,7 +17,7 @@ from LuciferFilter.functions.traceback import send_msg
 
 import os, asyncio, aiofiles, aiofiles.os, datetime, random, string, time
 
-@LuciferFilter-BoT.on_message(Command.a)
+@LuciferFilter_BoT.on_message(Command.a)
 async def start_command(client: LuciferFilter_BoT, message: message()):
 
     mention = user_mention(message)
@@ -107,8 +107,8 @@ async def start_command(client: LuciferFilter_BoT, message: message()):
         if Configs.LOG_CHANNEL is not None:
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
 
-@LuciferFilter-BoT.on_message(Command.b)
-async def help_command(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(Command.b)
+async def help_command(client: LuciferFilter_BoT, message: message()):
     mention = user_mention(message)
     bot_name = Bots.BOT_NAME
     bot_mention = Bots.BOT_MENTION
@@ -123,8 +123,8 @@ async def help_command(client: LuciferFilter-BoT, message: message()):
         if Configs.LOG_CHANNEL is not None:
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
             
-@LuciferFilter-BoT.on_message(Command.c)
-async def about_command(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(Command.c)
+async def about_command(client: LuciferFilter_BoT, message: message()):
     mention = user_mention(message)
     bot_name = Bots.BOT_NAME
     bot_username = Bots.BOT_USERNAME    
@@ -138,8 +138,8 @@ async def about_command(client: LuciferFilter-BoT, message: message()):
         if Configs.LOG_CHANNEL is not None:
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
       
-@LuciferFilter-BoT.on_message(Command.d)
-async def donate_command(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(Command.d)
+async def donate_command(client: LuciferFilter_BoT, message: message()):
     mention = user_mention(message)
     bot_name = Bots.BOT_NAME
     bot_username = Bots.BOT_USERNAME    
@@ -155,8 +155,8 @@ async def donate_command(client: LuciferFilter-BoT, message: message()):
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
 
 
-@LuciferFilter-BoT.on_message(Command.e)
-async def broadcast_command(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(Command.e)
+async def broadcast_command(client: LuciferFilter_BoT, message: message()):
     x = message.from_user.id if message.from_user else None
     if x in Configs.ADMINS_ID:
         await send_broadcast(client, message, db, send_msg, Configs)
