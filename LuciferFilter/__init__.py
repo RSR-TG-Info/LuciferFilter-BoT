@@ -19,14 +19,14 @@ class Accounts(object):
     API_ID = int(environ.get("API_ID", 0))
     API_HASH = environ.get("API_HASH")
     BOT_TOKEN = environ.get("BOT_TOKEN")
-    BOT_PLUGINS = environ.get("BOT_PLUGINS", "Midukki")
-    BOT_SESSIONS = environ.get("BOT_SESSION", "Midukki-RoboT")
+    BOT_PLUGINS = environ.get("BOT_PLUGINS", "LuciferFilter")
+    BOT_SESSIONS = environ.get("BOT_SESSION", "LuciferFilter-BoT")
 
 class Bots(object):
     BOT_ID = int(environ.get("BOT_ID", Accounts.BOT_TOKEN.split(":")[0]))
-    BOT_NAME = None # "Midukki"
-    BOT_MENTION = None # "@Midukki_Robot"
-    BOT_USERNAME = None # "Midukki_Robot"
+    BOT_NAME = None # "LuciferFilter"
+    BOT_MENTION = None # "@LuciferFilter_BoT"
+    BOT_USERNAME = None # "LuciferFilter_BoT"
     #bot up time
     BOT_START_TIME = time()
 
@@ -39,22 +39,22 @@ class Customize(object):
 
 class Configs(object):
     # admins id
-    ADMINS_ID = [int(admin) if find.search(admin) else admin for admin in environ.get('ADMINS_ID', '5601313788').split()]
+    ADMINS_ID = [int(admin) if find.search(admin) else admin for admin in environ.get('ADMINS_ID', '5967861438').split()]
 
     # bot information   
     COMMAND_PREFIXES = environ.get("COMMAND_PREFIXES", "/")
     if environ.get("BOT_PICS"):
-        START_PICS = (environ.get("BOT_PICS", "https://telegra.ph/file/5ad2c57ae74bafb6efec1.jpg")).split()
+        START_PICS = (environ.get("BOT_PICS", "https://graph.org/file/a6f99f5b71a20468b3180.jpg")).split()
     START_MESSAGE = environ.get("START_MESSAGE", START_TXT)
 
     # MongoDB information
-    DATABASE_NAME = environ.get("DATABASE_NAME", "Muhammed")
+    DATABASE_NAME = environ.get("DATABASE_NAME", "Professor")
     DATABASE_URL = environ.get("DATABASE_URL", None)
     COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
     # Groups & Channels
     LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
-    SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/Mo_Tech_YT')
+    SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/TechProjectsChats')
     CHANNELS = [int(ch) if find.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
     FORCE_SUB = environ.get('FORCE_SUB')
     AUTH_CHANNEL = int(FORCE_SUB) if FORCE_SUB and find.search(FORCE_SUB) else None
@@ -73,10 +73,10 @@ class Configs(object):
     WEB_API = environ.get("ADS_WEB_API")
 
     # other
-    DONATE_LINKS = environ.get("DONATION_LINK", "https://p.paytm.me/xCTH/7yzmtgie")
+    DONATE_LINKS = environ.get("DONATION_LINK", "joynathnet4@oksbi")
     LOADING_SYMBOL = bool(environ.get("LOADING_MODE", True))
-    LOADING_A = environ.get("LOADING_SYMBOL_A", "⚪️")
-    LOADING_B = environ.get("LOADING_SYMBOL_B", "⚫️")
+    LOADING_A = environ.get("LOADING_SYMBOL_A", "▢")
+    LOADING_B = environ.get("LOADING_SYMBOL_B", "▣")
     STOP_BOT = bool(environ.get("DEFAULT", False))
     PORT_CODE = environ.get("PORT", "8080")
     broadcast_ids = {} # don't change this..!!  
