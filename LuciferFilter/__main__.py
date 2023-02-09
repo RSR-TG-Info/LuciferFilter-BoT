@@ -2,23 +2,23 @@ from os import environ
 from random import choice 
 from pyrogram import filters, enums
 from pyrogram.errors import UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from . import Bots, Configs
-from .midukki import Midukki_RoboT
+from .import Bots, Configs
+from .luciferfilter import LuciferFilter-BoT
 from .scripts import START_TXT, HELP_TXT, ABOUT_TXT, STATUS_TXT, DONATE_TXT
-from Midukki.modules import vars
-from Midukki.functions.user_details import user_mention
-from Midukki.functions.handlers import Command
-from Midukki.functions.media_details import get_size
-from Midukki.functions.commands import button, markup, message
-from Midukki.database import get_file_details
-from Midukki.functions.settings import get_settings
-from Midukki.database import db
-from Midukki.functions.traceback import send_msg
+from LuciferFilter.modules import vars
+from LuciferFilter.functions.user_details import user_mention
+from LuciferFilter.functions.handlers import Command
+from LuciferFilter.functions.media_details import get_size
+from LuciferFilter.functions.commands import button, markup, message
+from LuciferFilter.database import get_file_details
+from LuciferFilter.functions.settings import get_settings
+from LuciferFilter.database import db
+from LuciferFilter.functions.traceback import send_msg
 
 import os, asyncio, aiofiles, aiofiles.os, datetime, random, string, time
 
-@Midukki_RoboT.on_message(Command.a)
-async def start_command(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Command.a)
+async def start_command(client: LuciferFilter_BoT, message: message()):
 
     mention = user_mention(message)
     bot_mention = Bots.BOT_MENTION
@@ -40,7 +40,7 @@ async def start_command(client: Midukki_RoboT, message: message()):
                 await message.reply_text(text=START_TXT.format(bot=bot_mention, mention=mention, name=bot_name, username=bot_username), reply_markup=markup()(vars.start_buttons), disable_web_page_preview=True)
                 await message.reply(e)
 
-    if message.text.startswith("/start muhammedrk"):
+    if message.text.startswith("/start"):
         if Configs.AUTH_CHANNEL:
             try: mrk, file_id, grp_id = message.text.split("_-_")
             except Exception as x:
@@ -60,7 +60,7 @@ async def start_command(client: Midukki_RoboT, message: message()):
                     return
             except UserNotParticipant:
                 FORCES = ["https://telegra.ph/file/b2acb2586995d0e107760.jpg"]
-                pr0fess0r_99 = [
+                pr0fess0r99 = [
                     [
                         button()
                             (
@@ -69,12 +69,12 @@ async def start_command(client: Midukki_RoboT, message: message()):
                             )
                     ]
                 ]    
-                pr0fess0r_99 = markup()(pr0fess0r_99)
-                await message.reply_photo(photo=choice(FORCES), caption=f"""Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> 𝚃𝙾 <a href="{invite_link.invite_link}">my updates channel</a>.so you do not get the files on here""", reply_markup=pr0fess0r_99)                
+                pr0fess0r99 = markup()(pr0fess0r99)
+                await message.reply_photo(photo=choice(FORCES), caption=f"""Hello {message.from_user.mention}.\nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> 𝚃𝙾 <a href="{invite_link.invite_link}">my updates channel</a>.so you do not get the files on here""", reply_markup=pr0fess0r_99)                
             except FloodWait as x:
                 await asyncio.sleep(x.value)
                 FORCES = ["https://telegra.ph/file/b2acb2586995d0e107760.jpg"]
-                pr0fess0r_99 = [
+                pr0fess0r99 = [
                     [
                         button()
                             (
@@ -83,7 +83,7 @@ async def start_command(client: Midukki_RoboT, message: message()):
                             )
                     ]
                 ]    
-                pr0fess0r_99 = markup()(pr0fess0r_99)
+                pr0fess0r99 = markup()(pr0fess0r99)
                 await message.reply_photo(photo=choice(FORCES), caption=f"""Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> 𝚃𝙾 <a href="{invite_link.invite_link}">my updates channel</a>.so you do not get the files on here""", reply_markup=pr0fess0r_99)                    
             except UserIsBlocked:
                 pass
@@ -107,8 +107,8 @@ async def start_command(client: Midukki_RoboT, message: message()):
         if Configs.LOG_CHANNEL is not None:
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
 
-@Midukki_RoboT.on_message(Command.b)
-async def help_command(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Command.b)
+async def help_command(client: LuciferFilter-BoT, message: message()):
     mention = user_mention(message)
     bot_name = Bots.BOT_NAME
     bot_mention = Bots.BOT_MENTION
@@ -123,8 +123,8 @@ async def help_command(client: Midukki_RoboT, message: message()):
         if Configs.LOG_CHANNEL is not None:
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
             
-@Midukki_RoboT.on_message(Command.c)
-async def about_command(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Command.c)
+async def about_command(client: LuciferFilter-BoT, message: message()):
     mention = user_mention(message)
     bot_name = Bots.BOT_NAME
     bot_username = Bots.BOT_USERNAME    
@@ -138,8 +138,8 @@ async def about_command(client: Midukki_RoboT, message: message()):
         if Configs.LOG_CHANNEL is not None:
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
       
-@Midukki_RoboT.on_message(Command.d)
-async def donate_command(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Command.d)
+async def donate_command(client: LuciferFilter-BoT, message: message()):
     mention = user_mention(message)
     bot_name = Bots.BOT_NAME
     bot_username = Bots.BOT_USERNAME    
@@ -155,8 +155,8 @@ async def donate_command(client: Midukki_RoboT, message: message()):
            await client.send_message(Configs.LOG_CHANNEL, "Name: {}\nId: `{}`".format(message.from_user.id, message.from_user.mention))
 
 
-@Midukki_RoboT.on_message(Command.e)
-async def broadcast_command(client: Midukki_RoboT, message: message()):
+@LuciferFilter-BoT.on_message(Command.e)
+async def broadcast_command(client: LuciferFilter-BoT, message: message()):
     x = message.from_user.id if message.from_user else None
     if x in Configs.ADMINS_ID:
         await send_broadcast(client, message, db, send_msg, Configs)
@@ -205,4 +205,4 @@ async def send_broadcast(client, message, db, send_msg, temp):
     await aiofiles.os.remove('broadcast.txt')
     
 if __name__ == "__main__":
-    Midukki_RoboT().run()
+    LuciferFilter-BoT().run()
