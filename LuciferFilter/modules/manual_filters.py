@@ -5,7 +5,7 @@ from logging import ERROR, getLogger
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pyrogram.errors import MediaEmpty, MessageEmpty
-from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.luciferfilter import LuciferFilter_BoT
 from LuciferFilter.functions.handlers import Manual
 from LuciferFilter.functions.keyboards import parser, split_quotes
 from LuciferFilter.functions.media_details import get_file_id
