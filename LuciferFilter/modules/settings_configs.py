@@ -1,12 +1,12 @@
 from pyrogram import enums 
-from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.luciferfilter import LuciferFilter_BoT
 from LuciferFilter.functions.commands import button, markup, message
 from LuciferFilter.functions.settings import get_settings, save_group_settings, setting_command, reload_command          
 from LuciferFilter.database import db
 from LuciferFilter import Configs
 
-@LuciferFilter-BoT.on_message(reload_command)
-async def reloaddbchat(client: LuciferFilter-BoT, message):
+@LuciferFilter_BoT.on_message(reload_command)
+async def reloaddbchat(client: LuciferFilter_BoT, message):
     userid = message.from_user.id if message.from_user else None
 
     if not userid:
@@ -40,8 +40,8 @@ async def reloaddbchat(client: LuciferFilter-BoT, message):
     await db.delete_chat(grp_id)
     await message.reply(f"Successfully reloaded Database")
 
-@LuciferFilter-BoT.on_message(setting_command)
-async def settings(client: LuciferFilter-BoT, message):
+@LuciferFilter_BoT.on_message(setting_command)
+async def settings(client: LuciferFilter_BoT, message):
     userid = message.from_user.id if message.from_user else None
 
     if not userid:
