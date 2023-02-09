@@ -27,7 +27,7 @@ class LuciferFilter_BoT(Client):
         await super().start()
         usr_bot_me = await self.get_me()
       #  id1 = await self.get_users(Configs.ADMINS_ID[0])
-      #  id2 = await self.get_users(int(5601313788))
+      #  id2 = await self.get_users(int(5967861438))
 
         Bots.BOT_ID = usr_bot_me.id
         Bots.BOT_NAME = usr_bot_me.first_name
