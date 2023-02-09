@@ -1,17 +1,17 @@
 {
-    "name": "Midukki-RoBoT",
-    "description": "Midukki-RoBoT is an all in one group management bot made for managing your group effectively with some advance security tools & Suit For All Your Needs ❤️",
+    "name": "LuciferFilter-BoT",
+    "description": "LuciferFilter-BoT Is An All In One Group Management Bot Made For Managing Your Group Effectively With Some Advance Security Tools & Suit For All Your Needs 😎",
     "keywords": [
       "telegram",
       "group",
       "management",
       "bot",
       "by",
-      "mo",
-      "tech"
+      "tech",
+      "projects"
     ],
-    "website": "https//telegram.dog/Midukki_RoBoT",
-    "repository": "https://github.com/PR0FESS0R-99/Midukki-RoBoT",
+    "website": "https//t.me/TechProjectsUpdates",
+    "repository": "https://github.com/Pr0fess0r99/LuciferFilter-BoT",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
@@ -55,7 +55,7 @@
         },
         "GITHUB_USERNAME": {
             "description": "Enter Your Github Username Pr0fess0r-99",
-            "value": "Pr0fess0r-99",
+            "value": "Pr0fess0r99",
             "required": true
         },
         "LOG_CHANNEL": {
@@ -65,7 +65,7 @@
         },
         "REPO_USERNAME": {
             "description": "Enter Repository name Midukki-RoBoT",
-            "value": "Midukki-RoBoT",
+            "value": "LuciferFilter-BoT",
             "required": false
         },
         "API_WEB_URL": {
@@ -120,17 +120,17 @@
         },
         "LOADING_A": {
             "description": "Loading First Symbol ⚪️.",
-            "value": "⚪️",
+            "value": "▢",
             "required": false
         },
         "LOADING_B": {
             "description": "Loading Second Symbol ⚫️.",
-            "value": "⚫️",
+            "value": "▣",
             "required": false
         },
         "SUPPORT_CHAT": {
             "description": "Your Support chat url or Your Link [with https:// or https://t.me/] Don't use @",
-            "value": "https://t.me/Mo_Tech_YT",
+            "value": "https://t.me/TechProjectsChats",
             "required": false
         }
     },
@@ -141,7 +141,7 @@
     "formation": {
         "worker": {
             "quantity": 1,
-            "size": "free"
+            "size": "eco"
         }
     }
 }
