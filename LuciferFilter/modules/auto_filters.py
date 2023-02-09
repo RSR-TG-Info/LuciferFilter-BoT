@@ -1,7 +1,7 @@
 import os, aiohttp, re, asyncio
 from asyncio import sleep
 from pyrogram import filters, enums
-from LuciferFilter.luciferfilter import LuciferFilter-BoT
+from LuciferFilter.luciferfilter import LuciferFilter_BoT
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from pyrogram.errors import UserIsBlocked, MessageNotModified, PeerIdInvalid, FloodWait
 from LuciferFilter.database import db, Media, save_file, get_file_details, get_search_results
@@ -21,7 +21,7 @@ lock = asyncio.Lock()
 
 media_filter = filters.document | filters.video | filters.audio
 
-@LuciferFilter-BoT.on_message(filters.chat(Configs.CHANNELS) & media_filter)
+@LuciferFilter_BoT.on_message(filters.chat(Configs.CHANNELS) & media_filter)
 async def media(client, message):
     """Media Handler"""
     for file_type in ("document", "video", "audio"):
@@ -169,8 +169,8 @@ async def index_files(client, query):
     await index_files_to_db(int(lst_msg_id), chat, msg, client)
 
 
-@LuciferFilter-BoT.on_message(AutoFilter.b)
-async def save_template(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(AutoFilter.b)
+async def save_template(client: LuciferFilter_BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -206,13 +206,13 @@ async def save_template(client: LuciferFilter-BoT, message: message()):
     if len(message.command) < 2:
         return await sts.edit("None")
 
-    pr0fess0r_99 = message.text.split(" ", 1)[1]
-    await save_group_settings(grp_id, 'template', pr0fess0r_99)
-    await sts.edit(f"""Successfully Changed Temp (Autofilter) for {title} to \n\n{pr0fess0r_99}""")
+    pr0fess0r99 = message.text.split(" ", 1)[1]
+    await save_group_settings(grp_id, 'template', pr0fess0r99)
+    await sts.edit(f"""Successfully Changed Temp (Autofilter) for {title} to \n\n{pr0fess0r99}""")
 
 
-@LuciferFilter-BoT.on_message(AutoFilter.c)
-async def reset_template(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(AutoFilter.c)
+async def reset_template(client: LuciferFilter_BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -249,8 +249,8 @@ async def reset_template(client: LuciferFilter-BoT, message: message()):
     await sts.edit(f"""Successfully Restarted Autofilter""")
 
 
-@LuciferFilter-BoT.on_message(AutoFilter.d)
-async def set_filecaption(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(AutoFilter.d)
+async def set_filecaption(client: LuciferFilter_BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -286,13 +286,13 @@ async def set_filecaption(client: LuciferFilter-BoT, message: message()):
     if len(message.command) < 2:
         return await sts.edit("None")
 
-    pr0fess0r_99 = message.text.split(" ", 1)[1]
-    await save_group_settings(grp_id, 'caption', pr0fess0r_99)
+    pr0fess0r99 = message.text.split(" ", 1)[1]
+    await save_group_settings(grp_id, 'caption', pr0fess0r99)
     await sts.edit(f"""Successfully Changed FileCaption (Autofilter) for {title} to \n\n{pr0fess0r_99}""")
 
 
-@LuciferFilter-BoT.on_message(AutoFilter.e)
-async def reset_caption(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(AutoFilter.e)
+async def reset_caption(client: LuciferFilter_BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -329,8 +329,8 @@ async def reset_caption(client: LuciferFilter-BoT, message: message()):
     await sts.edit("Successfully Restarted FileCaption")
 
 
-@LuciferFilter-BoT.on_message(AutoFilter.f)
-async def set_spellmode(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(AutoFilter.f)
+async def set_spellmode(client: LuciferFilter_BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -366,13 +366,13 @@ async def set_spellmode(client: LuciferFilter-BoT, message: message()):
     if len(message.command) < 2:
         return await sts.edit("None")
 
-    pr0fess0r_99 = message.text.split(" ", 1)[1]
-    await save_group_settings(grp_id, 'spell_caption', pr0fess0r_99)
+    pr0fess0r99 = message.text.split(" ", 1)[1]
+    await save_group_settings(grp_id, 'spell_caption', pr0fess0r99)
     await sts.edit(f"""Successfully Changed SpellCheck Message (Autofilter) for {title} to \n\n{pr0fess0r_99}""")
 
 
-@LuciferFilter-BoT.on_message(AutoFilter.g)
-async def reset_spellmode(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(AutoFilter.g)
+async def reset_spellmode(client: LuciferFilter_BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -408,8 +408,8 @@ async def reset_spellmode(client: LuciferFilter-BoT, message: message()):
     await save_group_settings(grp_id, 'spell_caption', Customize.SPELLCHECK_CAPTION)
     await sts.edit("Successfully Restarted SpellCheck Message")
 
-@LuciferFilter-BoT.on_message(AutoFilter.h)
-async def set_autodel(client: LuciferFilter-BoT, message: message()):
+@LuciferFilter_BoT.on_message(AutoFilter.h)
+async def set_autodel(client: LuciferFilter_BoT, message: message()):
     sts = await message.reply_text("⏳️")
     await sleep(0.3)
     userid = message.from_user.id if message.from_user else None
@@ -445,16 +445,16 @@ async def set_autodel(client: LuciferFilter-BoT, message: message()):
     if len(message.command) < 2:
         return await sts.edit("Please enter command with delete time in seconds eg:-  /auto_delete 600")
 
-    pr0fess0r_99 = message.text.split(" ", 1)[1]
-    try: pr0fess0r_99 = int(pr0fess0r_99)
+    pr0fess0r99 = message.text.split(" ", 1)[1]
+    try: pr0fess0r99 = int(pr0fess0r99)
     except:
         await message.reply("Eg : `/set_autodelete 100`")
         return
-    await save_group_settings(grp_id, 'auto_del', pr0fess0r_99)
+    await save_group_settings(grp_id, 'auto_del', pr0fess0r99)
     await sts.edit(f"""Successfully Changed Auto Delete Time (Autofilter) for {title}""")
 
 
-@LuciferFilter-BoT.on_message(Admins.a)
+@LuciferFilter_BoT.on_message(Admins.a)
 async def channel_info(client, message):
            
     """Send basic information of channel"""
@@ -484,7 +484,7 @@ async def channel_info(client, message):
         await message.reply_document(file)
         os.remove(file)
 
-@LuciferFilter-BoT.on_message(Admins.b)
+@LuciferFilter_BoT.on_message(Admins.b)
 async def total(client, message):
     msg = await message.reply_text("Processing...⏳", quote=True)
     try:
@@ -494,7 +494,7 @@ async def total(client, message):
         logger.exception('Failed To Check Total Files')
         await msg.edit(f'Error: {e}')
 
-@LuciferFilter-BoT.on_message(Admins.c)
+@LuciferFilter_BoT.on_message(Admins.c)
 async def delete(client, message):
     """Delete file from database"""
     reply = message.reply_to_message
@@ -541,7 +541,7 @@ async def delete(client, message):
             else:
                 await msg.edit('File not found in database')
 
-@LuciferFilter-BoT.on_message(Admins.d)
+@LuciferFilter_BoT.on_message(Admins.d)
 async def delete_all_index(client, message):
     await message.reply_text(
         'This will delete all indexed files.\nDo you want to continue??',
@@ -562,7 +562,7 @@ async def delete_all_index(client, message):
         quote=True,
     )
 
-@LuciferFilter-BoT.on_message(Admins.e)
+@LuciferFilter_BoT.on_message(Admins.e)
 async def set_skip_number(client, message):
     if ' ' in message.text:
         _, skip = message.text.split(" ")
@@ -575,7 +575,7 @@ async def set_skip_number(client, message):
     else:
         await message.reply("Give me a skip number")
 
-@LuciferFilter-BoT.on_message(Admins.f)
+@LuciferFilter_BoT.on_message(Admins.f)
 async def log_file(bot, message):
     """Send log file"""
     try:
@@ -583,7 +583,7 @@ async def log_file(bot, message):
     except Exception as e:
         await message.reply(str(e))
 
-@LuciferFilter-BoT.on_callback_query(filters.regex(r'^autofilter_delete'))
+@LuciferFilter_BoT.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(client, message):
     await Media.collection.drop()
     await message.answer('Piracy Is Crime')
@@ -684,7 +684,7 @@ async def get_result_file(client, query):
     except Exception as e:
         await query.answer(url=f"https://t.me/{Bots.BOT_USERNAME}?start=Midukki_-_{file_id}")
 
-async def auto_filters(client: Midukki_RoboT, message: message()):
+async def auto_filters(client: LuciferFilter_BoT, message: message()):
 
     if 2 < len(message.text) < 100:    
         btn = []
