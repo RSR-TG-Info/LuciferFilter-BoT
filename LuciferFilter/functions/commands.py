@@ -1,4 +1,4 @@
-from Midukki import Configs
+from LuciferFilter import Configs
 from pyrogram import filters
 from typing import List, Union
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
