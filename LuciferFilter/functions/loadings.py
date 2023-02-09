@@ -1,5 +1,5 @@
-async def loading(pr0fess0r_99, a, b, wait):
-    c = await pr0fess0r_99.message.reply(f"{a}{a}{a}")
+async def loading(pr0fess0r99, a, b, wait):
+    c = await pr0fess0r99.message.reply(f"{a}{a}{a}")
     await wait(0.2)
     d = await c.edit(f"{b}{a}{a}")
     await wait(0.2)
