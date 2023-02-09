@@ -1,8 +1,8 @@
 from pyrogram import filters
 from .commands import command
-from Midukki.midukki import Midukki_RoboT
-from Midukki.functions.cust_p_filters import admin_fliter
-from Midukki import Configs
+from LuciferFilter.luciferfilter import LuciferFilter_BoT
+from LuciferFilter.functions.cust_p_filters import admin_fliter
+from LuciferFilter import Configs
 
 class Command(object):
     a = command(["start"]) & (filters.private | filters.group)                                                    
