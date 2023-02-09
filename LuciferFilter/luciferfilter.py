@@ -4,13 +4,13 @@ from logging import getLogger, ERROR
 from pyrogram.raw.all import layer
 from pyrogram import Client, __version__, types, enums
 from pyrogram.errors import UserNotParticipant
-from Midukki import Accounts, Bots, who_is_creator, Configs, bot_run
+from LuciferFilter import Accounts, Bots, who_is_creator, Configs, bot_run
 from typing import Union, Optional, AsyncGenerator
 
 logger = getLogger(__name__)
 logger.setLevel(ERROR)
 
-class Midukki_RoboT(Client):
+class LuciferFilter_BoT(Client):
 
     def __init__(self):
         super().__init__(
@@ -34,10 +34,10 @@ class Midukki_RoboT(Client):
         Bots.BOT_MENTION = usr_bot_me.mention
         Bots.BOT_USERNAME = usr_bot_me.username
         print(
-         f"@Midukki_RoboT based on Pyrogram v{__version__} "
+         f"@LuciferFilter_BoT based on Pyrogram v{__version__} "
          f"(Layer {layer}) started on @{usr_bot_me.username}. "
         )
-        print("This BoT Created By @Mo_Tech_YT")        
+        print("This BoT Created By @Pr0fess0r99")        
         if Configs.LOG_CHANNEL:
             await self.send_logs(int(Configs.LOG_CHANNEL))
 
@@ -62,9 +62,9 @@ class Midukki_RoboT(Client):
                 yield message
                 current += 1
 
-    async def is_subscribed(self, midukki, bot):
+    async def is_subscribed(self, luciferfilter, bot):
         try:
-            user = await midukki.get_chat_member(Configs.AUTH_CHANNEL, bot.from_user.id)
+            user = await luciferfilter.get_chat_member(Configs.AUTH_CHANNEL, bot.from_user.id)
         except UserNotParticipant:
             pass
         except Exception as e:
@@ -76,4 +76,4 @@ class Midukki_RoboT(Client):
         return False
 
     async def send_logs(self, chat_id):
-        await self.send_message(chat_id=chat_id, text="#BoT_Started")
+        await self.send_message(chat_id=chat_id, text="BoT Successfully Started ☑️")
