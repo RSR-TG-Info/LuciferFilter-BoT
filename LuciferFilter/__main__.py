@@ -205,4 +205,4 @@ async def send_broadcast(client, message, db, send_msg, temp):
     await aiofiles.os.remove('broadcast.txt')
     
 if __name__ == "__main__":
-    LuciferFilter-BoT().run()
+    LuciferFilter_BoT().run()
