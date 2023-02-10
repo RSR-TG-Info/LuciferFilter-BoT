@@ -42,9 +42,10 @@ async def start_command(client: LuciferFilter_BoT, message: message()):
 
     if message.text.startswith("/start"):
         if Configs.AUTH_CHANNEL:
-            try: mrk, file_id, grp_id = message.text.split("_-_")
+            try:
+                mrk, file_id, grp_id = message.text.split("_-_")
             except Exception as x:
-                return await message.reply("**Error :** `{x}")
+                return await message.reply(f"**Error :** `{x}")
 
             if Configs.FORCES_SUB_LINK:
                 invite_link = Configs.FORCES_SUB_LINK
